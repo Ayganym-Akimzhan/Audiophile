@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Audiophile e-commerce website</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body>
+    <div
+      class="header md:px-20 py-5 bg-zinc-900 w-full flex flex-col text-white"
+    >
+      <nav class="max-w-7xl text-white text-[20px] flex justify-between">
+        <div class="n1">
+          <a href="index.html"> <img src="assets/shared/desktop/logo.svg" /></a>
+        </div>
+        <div class="n2 flex gap-10">
+          <a href="index.html">
+            <p>Home</p>
+          </a>
+          <a href="headphones.html"> <p>Headphones</p></a>
+
+          <a href="speakers.html"><p>Speakers</p></a>
+          <a href="earphones.html">
+            <p>Earphones</p>
+          </a>
+        </div>
+        <img class="w-8 h-7" src="assets/shared/desktop/icon-cart.svg" />
+      </nav>
+    </div>
+    <div class="products max-w-6xl mx-auto mt-20 flex flex-col gap-20"></div>
+
+    <section class="max-w-6xl mx-auto px-6 py-20 mt-40">
+      <div class="Suggestions flex gap-15">
+        <div
+          class="suggest w-100 relative h-55 bg-zinc-100 rounded-[10px] flex items-center justify-end p-5 flex-col gap-3"
+        >
+          <img
+            class="mini-products z-2 -top-30 absolute w-70 h-65"
+            src="assets/shared/desktop/image-category-thumbnail-headphones.png"
+          />
+          <h2 class="text-[25px] font-bold">Headphones</h2>
+
+          <a href="headphones.html">
+            <p class="hover:text-orange-400">Shop ></p></a
+          >
+        </div>
+        <div
+          class="suggest w-100 relative h-55 bg-zinc-100 rounded-[10px] flex items-center justify-end p-5 flex-col gap-3"
+        >
+          <img
+            class="mini-products z-2 -top-30 absolute w-70 h-65"
+            src="assets/shared/desktop/image-category-thumbnail-speakers.png"
+          />
+          <h2 class="text-[25px] font-bold">Speakers</h2>
+          <a href="speakers.html">
+            <p class="hover:text-orange-500">Shop ></p>
+          </a>
+        </div>
+        <div
+          class="suggest w-100 relative h-55 bg-zinc-100 rounded-[10px] flex items-center justify-end p-5 flex-col gap-3"
+        >
+          <img
+            class="mini-products z-2 -top-30 absolute w-70 h-65"
+            src="assets/shared/desktop/image-category-thumbnail-earphones.png"
+          />
+          <h2 class="text-[25px] font-bold">Earphones</h2>
+          <a href="earphones.html">
+            <p class="hover:text-orange-500">Shop ></p>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="max-w-6xl mx-auto px-6 py-10"></section>
+    <div class="about max-w-6xl mx-auto px-6 mt-20">
+      <div class="flex flex-col md:flex-row items-center gap-30">
+        <div class="md:w-1/2 text-center md:text-left">
+          <h2 class="text-[40px] font-bold">
+            BRINGING YOU THE<br />
+            <span class="text-orange-400">BEST</span> AUDIO GEAR
+          </h2>
+          <p class="text-gray-600 mt-10">
+            Located at the heart of New York City, Audiophile is the premier
+            store for high end headphones, earphones, speakers, and audio
+            accessories. We have a large showroom and luxury demonstration rooms
+            available for you to browse and experience a wide range of our
+            products. Stop by our store to meet some of the fantastic people who
+            make Audiophile the best place to buy your portable audio equipment
+          </p>
+        </div>
+
+        <img
+          src="assets/shared/desktop/image-best-gear.jpg"
+          class="md:w-1/2 rounded-lg"
+        />
+      </div>
+    </div>
+
+    <footer class="bg-black p-20 mt-20 text-white flex gap-70">
+      <div class="text1">
+        <p>
+          Audiophile is an all in one stop to fulfill your audio needs. We're a
+          small team of music lovers and sound specialists who are devoted to
+          helping you get the most out of personal audio. Come and visit our
+          demo facility - we’re open 7 days a week. Copyright 2021. All Rights
+          Reserved
+        </p>
+      </div>
+      <div class="unknown flex flex-col gap-10">
+        <div class="footertext text-white flex gap-5">
+          <a href="index.html">
+            <ul>
+              Home
+            </ul>
+          </a>
+          <a href="headphones.html">
+            <ul>
+              Headphones
+            </ul></a
+          >
+          <a href="speakers.html">
+            <ul>
+              Speakers
+            </ul>
+          </a>
+          <a href="earphones.html">
+            <ul>
+              Earphones
+            </ul>
+          </a>
+        </div>
+        <div class="icons flex gap-5 items-end justify-end">
+          <img src="assets/shared/desktop/icon-facebook.svg" />
+          <img src="assets/shared/desktop/icon-twitter.svg" />
+          <img src="assets/shared/desktop/icon-instagram.svg" />
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const productsContainer = document.querySelector(".products");
+      const URL = "./data.json";
+
+      async function addProduct() {
+        const promise = await fetch(URL);
+        const data = await promise.json();
+
+        const productsArray = data.zx7Speaker;
+        for (let i = 0; i < productsArray.length; i++) {
+          const item = productsArray[i];
+
+          const Mainproduct = document.createElement("div");
+
+          Mainproduct.innerHTML = `
+              <div class="grid md:grid-cols-2 gap-20">
+                <img class="rounded-[10px]" src="${item.image.desktop}" />
+
+                <div class="flex flex-col gap-7 items-start justify-center w-full">
+                  ${item.new ? `<p class="text-orange-400">NEW PRODUCT</p>` : ""}
+
+                  <h1 class="text-[40px]">${item.name}</h1>
+
+                  <p>${item.description}</p>
+
+                  <h2 class="font-medium text-[25px]">$${item.price}</h2>
+
+                  <div class="flex gap-10">
+                    <div class="counter flex gap-4 text-[25px] bg-zinc-100 items-center">
+                      <button class="minus px-5 py-2 hover:bg-zinc-200">-</button>
+                      <p class="countRes text-[20px] ">1</p>
+                      <button class="plus px-5 py-2 hover:bg-zinc-200">+</button>
+                    </div>
+
+                    <button class="bg-orange-400 w-40 text-white hover:bg-black">
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `;
+          const features = document.createElement("div");
+          features.innerHTML = `<div class="features flex flex-col md:flex-row gap-40">
+              <div class="f1 flex flex-col gap-5">
+                <h1 class="text-[40px] font-medium">Features</h1>
+                <p class="w-180 text-[20px] text-gray-500">
+                 ${item.features}
+                </p>
+              </div>
+              <div class="f2 flex flex-col gap-5">
+                <h1 class="text-[40px] font-medium">In the box</h1>
+
+               <div class="lists flex flex-col gap-2">
+
+
+                <div class="list flex gap-5 text-[20px]">
+                  <span class="text-orange-400"> ${item.includes.inc1.quantity}x</span>
+                  <p>${item.includes.inc1.item}</p>
+                </div>
+                <div class="list flex gap-5 text-[20px]">
+                  <span class="text-orange-400"> ${item.includes.inc2.quantity}x</span>
+
+                  <p>${item.includes.inc2.item}</p>
+                </div>
+              <div class="list flex gap-5 text-[20px]">
+                  <span class="text-orange-400"> ${item.includes.inc3.quantity}x</span>
+
+                  <p>${item.includes.inc3.item}</p>
+                </div> <div class="list flex gap-5 text-[20px]">
+                  <span class="text-orange-400"> ${item.includes.inc4.quantity}x</span>
+
+                  <p>${item.includes.inc4.item}</p>
+                </div>
+              </div>
+              </div>
+
+            </div>`;
+          const gallery = document.createElement("div");
+          gallery.innerHTML = `<div class="gallery max-w-6xl mx-auto px-6 py-16">
+            <div class="left grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="grid gap-8">
+                <img
+                  src="${item.gallery.first.desktop}"
+                  alt=""
+                  class="w-full h-full object-cover rounded-xl"
+                />
+                <img
+                  src="${item.gallery.second.desktop}"
+                  alt=""
+                  class="w-full h-full object-cover  rounded-xl"
+                />
+              </div>
+
+              <div class="right">
+                <img
+                  src="${item.gallery.third.desktop}"
+                  alt=""
+                  class="w-full h-full object-cover rounded-xl"
+                />
+                   </div>
+                </div>
+                </div>`;
+
+          const other = document.createElement("div");
+          other.innerHTML = `<div class="bg-white py-24">
+            <div class="max-w-6xl mx-auto px-6 text-center">
+              <h2
+                class="text-3xl md:text-4xl font-bold  uppercase mb-16"
+              >
+                You May Also Like
+              </h2>
+
+              <div class="others grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="another flex flex-col items-center">
+                  <div
+                    class="bg-gray-100 w-full h-64 rounded-lg flex items-center justify-center mb-8"
+                  >
+                    <img src="${item.others.ot1.image.desktop}"  />
+                  </div>
+                  <h3 class="text-[30px] font-medium mb-6 uppercase">
+                  ${item.others.ot1.name}
+                  </h3>
+                  <button
+                    class="bg-orange-400 text-white px-8 py-3 uppercase  text-sm font-medium hover:bg-black"
+                  >
+                    See Product
+                  </button>
+                </div>
+
+                <div class="another flex flex-col items-center">
+                  <div
+                    class="bg-gray-100 w-full h-64 rounded-lg flex items-center justify-center mb-8"
+                  >
+                    <img src="${item.others.ot2.image.desktop}"  />
+                  </div>
+                  <h3 class="text-[30px] font-medium mb-6 uppercase">
+                  ${item.others.ot2.name}
+
+                  </h3>
+                  <button
+                    class="bg-orange-400 text-white px-8 py-3 uppercase  text-sm font-medium hover:bg-black"
+                  >
+                    See Product
+                  </button>
+                </div>
+
+                <div class="another flex flex-col items-center">
+                  <div
+                    class="bg-gray-100 w-full h-64 rounded-lg flex items-center justify-center mb-8"
+                  >
+                    <img src="${item.others.ot3.image.desktop}"  />
+                  </div>
+                  <h3 class="text-[30px] font-medium  mb-6 uppercase">
+                  ${item.others.ot3.name}
+
+                  </h3>
+                  <button
+                    class="bg-orange-400 text-white px-8 py-3 uppercase  text-sm font-medium hover:bg-black"
+                  >
+                    See Product
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>`;
+          productsContainer.appendChild(Mainproduct);
+          productsContainer.appendChild(features);
+          productsContainer.appendChild(gallery);
+          productsContainer.appendChild(other);
+
+          const countRes = Mainproduct.querySelector(".countRes");
+          const plus = Mainproduct.querySelector(".plus");
+          const minus = Mainproduct.querySelector(".minus");
+
+          let number = 1;
+
+          plus.addEventListener("click", function () {
+            number++;
+            countRes.textContent = number;
+          });
+
+          minus.addEventListener("click", function () {
+            if (number > 1) {
+              number--;
+              countRes.textContent = number;
+            }
+          });
+        }
+      }
+
+      addProduct();
+    </script>
+  </body>
+</html>
