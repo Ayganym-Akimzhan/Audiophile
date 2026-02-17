@@ -1,110 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Audiophile</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-zinc-100">
+    <div
+      class="header md:px-20 py-5 bg-zinc-900 w-full flex flex-col text-white"
+    >
+      <nav class="max-w-7xl text-white text-[20px] flex justify-between">
+        <div class="n1">
+          <a href="index.html"> <img src="assets/shared/desktop/logo.svg" /></a>
+        </div>
+        <div class="n2 flex gap-10">
+          <a href="index.html">
+            <p>Home</p>
+          </a>
+          <a href="headphones.html"> <p>Headphones</p></a>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <a href="speakers.html"><p>Speakers</p></a>
+          <a href="earphones.html">
+            <p>Earphones</p>
+          </a>
+        </div>
+        <img class="w-8 h-7" src="assets/shared/desktop/icon-cart.svg" />
+      </nav>
+    </div>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <main class="max-w-6xl mx-auto px-6 py-12">
+      <a
+        href="index.html"
+        class="text-gray-500 hover:text-orange-400 mb-10 block"
+        >Go Back</a
+      >
 
-  <title>Frontend Mentor | Audiophile e-commerce website</title>
-</head>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <form class="lg:col-span-2 bg-white rounded-lg p-8 md:p-12 shadow-sm">
+          <h1 class="text-3xl font-bold uppercase mb-10">Checkout</h1>
 
-<body>
-  Home
-  Headphones
-  Speakers
-  Earphones
+          <div class="mb-12">
+            <h2 class="text-orange-400 text-sm font-bold uppercase mb-4">
+              Billing Details
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-xs">Name</label>
+                <input
+                  type="text"
+                  placeholder="Alexei Ward"
+                  class="border rounded-lg p-4 focus:border-orange-400 font-bold"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-xs">Email Address</label>
+                <input
+                  type="email"
+                  placeholder="alexei@mail.com"
+                  class="border rounded-lg p-4 focus:border-orange-400 font-bold"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-xs">Phone Number</label>
+                <input
+                  type="tel"
+                  placeholder="+1 202-555-0136"
+                  class="border rounded-lg p-4 focus:border-orange-400 font-bold"
+                />
+              </div>
+            </div>
+          </div>
 
-  
-  <!-- Cart Modal -->
-  Cart(3)
-  Remove All
+          <div class="mb-12">
+            <h2 class="text-orange-400 text-sm font-bold uppercase mb-4">
+              Shipping Info
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2 md:col-span-2">
+                <label class="font-bold text-xs">Address</label>
+                <input
+                  type="text"
+                  placeholder="1137 Williams Avenue"
+                  class="border rounded-lg p-4 border-orange-400 font-bold"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-xs">ZIP Code</label>
+                <input
+                  type="text"
+                  placeholder="10001"
+                  class="border rounded-lg p-4 border-orange-400 font-bold"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-xs">City</label>
+                <input
+                  type="text"
+                  placeholder="New York"
+                  class="border rounded-lg p-4 border-orange-400 font-bold"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-xs">Country</label>
+                <input
+                  type="text"
+                  placeholder="United States"
+                  class="border rounded-lg p-4 border-orange-400 font-bold"
+                />
+              </div>
+            </div>
+          </div>
 
-  XX99 MK II x1
-  $2,999
-  
-  XX59 x2
-  $899
-  
-  YX1 x1
-  $599
-  
-  Total $5,396
+          <div>
+            <h2 class="text-orange-400 text-sm font-bold uppercase mb-4">
+              Payment Details
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <label class="font-bold text-xs">Payment Method</label>
+              <div class="flex flex-col gap-4">
+                <label
+                  class="flex items-center gap-4 border rounded-lg p-4 hover:border-orange-400"
+                >
+                  <input
+                    type="radio"
+                    name="payment"
+                    class="accent-orange-400"
+                    checked
+                  />
+                  <span class="font-bold">e-Money</span>
+                </label>
+                <label
+                  class="flex items-center gap-4 border rounded-lg p-4 hover:border-orange-400"
+                >
+                  <input
+                    type="radio"
+                    name="payment"
+                    class="accent-orange-400"
+                  />
+                  <span class="font-bold text-sm">Cash on Delivery</span>
+                </label>
+              </div>
 
-  Checkout
-  <!-- Cart modal end -->
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-xs">e-Money Number</label>
+                <input
+                  type="text"
+                  placeholder="238521993"
+                  class="border rounded-lg p-4 border-orange-400 font-bold"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label class="font-bold text-xs">e-Money PIN</label>
+                <input
+                  type="text"
+                  placeholder="6891"
+                  class="border rounded-lg p-4 border-orange-400 font-bold"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
 
-  
-  Go back
+        <aside class="bg-white rounded-lg p-8">
+          <h2 class="text-lg font-bold uppercase mb-8">Summary</h2>
 
-  Checkout
+          <div class="flex flex-col gap-6 mb-8">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-16 h-16 bg-zinc-100 rounded-lg flex items-center justify-center"
+                >
+                  <img
+                    src="./assets/cart/image-xx99-mark-two-headphones.jpg"
+                    alt="product"
+                    class="w-10"
+                  />
+                </div>
+                <div>
+                  <p class="font-bold">XX99 MK II</p>
+                  <p class="text-gray-500 font-bold text-sm">$ 2,999</p>
+                </div>
+              </div>
+              <p class="text-gray-500 font-bold">x1</p>
+            </div>
+          </div>
 
-  Billing details
-  Name
-  Email address
-  Phone number
+          <div class="flex flex-col gap-2 mb-8">
+            <div class="flex justify-between">
+              <span class="text-gray-500 uppercase text-sm">Total</span>
+              <span class="font-bold text-lg">$ 5,396</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500 uppercase text-sm">Shipping</span>
+              <span class="font-bold text-lg">$ 50</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-500 uppercase text-sm"
+                >VAT (Included)</span
+              >
+              <span class="font-bold text-lg">$ 1,079</span>
+            </div>
+            <div class="flex justify-between mt-4">
+              <span class="text-gray-500 uppercase text-sm">Grand Total</span>
+              <span class="font-bold text-lg text-orange-400">$ 5,446</span>
+            </div>
+          </div>
 
-  Shipping info
-  Address
-  ZIP code
-  City
-  Country
+          <button
+            class="w-full bg-orange-400 text-white py-4 uppercase font-bold hover:bg-black"
+          >
+            Continue & Pay
+          </button>
+        </aside>
+      </div>
+    </main>
 
-  Payment details
-  Payment method
-  e-Money
-  Cash on delivery
-  e-Money number
-  e-money PIN
-
-  The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives 
-  at your residence. Just make sure your address is correct so that your order will not be cancelled.
-
-  Summary
-  XX99 MK II x1
-  $2,999
-
-  XX59 x2
-  $899
-
-  YX1 x1
-  $599
-
-  Total $5,396
-  Shipping $10
-  VAT $120
-
-  Grand total $5,526
-
-  Continue & pay
-
-
-  <!-- Success Modal -->
-  Thank you for your order
-  You will receive an email confirmation shortly.
-
-  XX99 MK II x 1
-  $2,999
-  and 2 other item(s)
-
-  Grand total
-  $5,526
-
-  Back to home
-  <!-- End success modal -->
-
-
-  Home
-  Headphones
-  Speakers
-  Earphones
-
-  Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
-  and sound specialists who are devoted to helping you get the most out of personal audio. Come and
-  visit our demo facility - we’re open 7 days a week.
-
-  Copyright 2021. All Rights Reserved
-</body>
-
+    <footer class="bg-zinc-900 text-white py-20 px-6 md:px-20 mt-20">
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10"
+      >
+        <div class="md:w-1/2">
+          <img src="assets/shared/desktop/logo.svg" alt="logo" class="mb-8" />
+          <p class="text-zinc-500">
+            Audiophile is an all in one stop to fulfill your audio needs. We're
+            a small team of music lovers and sound specialists who are devoted
+            to helping you get the most out of personal audio.
+          </p>
+          <p class="text-zinc-500 mt-10">Copyright 2021. All Rights Reserved</p>
+        </div>
+        <div class="flex flex-col items-end gap-10">
+          <div class="flex gap-5 uppercase font-bold text-sm">
+            <a href="index.html" class="hover:text-orange-400">Home</a>
+            <a href="headphones.html" class="hover:text-orange-400"
+              >Headphones</a
+            >
+          </div>
+          <div class="flex gap-4">
+            <img src="assets/shared/desktop/icon-facebook.svg" alt="fb" />
+            <img src="assets/shared/desktop/icon-twitter.svg" alt="tw" />
+            <img src="assets/shared/desktop/icon-instagram.svg" alt="ig" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
